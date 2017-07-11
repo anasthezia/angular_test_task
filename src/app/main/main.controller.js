@@ -27,11 +27,8 @@ export class MainController {
   }
 
   getProducts(ProductsService) {
-    this.awesomeThings = ProductsService.getProducts();
+    this.products = ProductsService.getProducts();
     console.log ('get products');
-    angular.forEach(this.awesomeThings, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
-    });
   }
   showToastr() {
     this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
