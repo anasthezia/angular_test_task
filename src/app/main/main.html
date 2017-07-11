@@ -20,7 +20,7 @@
     <div class="techs" layout-align="center">
       <md-card ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
         <md-card-content>
-          <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+          <img class="pull-right" ng-src="{{ awesomeThing.picture }}" alt="{{ awesomeThing.title }}">
           <h3 class="md-title">{{ awesomeThing.title }}</h3>
           <p>{{ awesomeThing.description }}</p>
         </md-card-content>
@@ -29,6 +29,7 @@
         </div>
       </md-card>
     </div>
+    <div ng-controller="ProductsController">wetrrwet1111111111111</div>
   </md-content>
 
 </div>

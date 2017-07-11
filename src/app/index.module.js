@@ -4,6 +4,7 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
+import { ProductsController } from '../app/components/products/products.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { ProductsService } from '../app/components/products/products.service';
@@ -20,5 +21,6 @@ angular.module('angularTestTask', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .service('webDevTec', WebDevTecService)
   .service('ProductsService', ProductsService)
   .controller('MainController', MainController)
+  .controller('ProductsController', ProductsController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
