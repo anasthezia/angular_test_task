@@ -31,7 +31,10 @@ export class MainController {
 
   getProducts(ProductsService) {
     this.products = ProductsService.getProducts();
-    console.log ('get products');
+  }
+  getMaxPageCount() {
+    this.maxPageCount = Math.ceil(this.products.length/ this.itemsPerPage);
+    return this.maxPageCount;
   }
   showToastr() {
     this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');

@@ -33,11 +33,12 @@
         <md-icon  style="display:inline-block;">search</md-icon>
       </md-input-container>
       <md-input-container  class="md-block" flex="20" flex-xs="100">
-        <label for="itemsPerPage">Items per Page</label><input id="itemsPerPage" ng-model="main.itemsPerPage" type="number" min="1">
+        <label for="itemsPerPage">Items per Page</label>
+        <input id="itemsPerPage" ng-model="main.itemsPerPage" type="number" min="1" max={{main.products.length}}>
       </md-input-container>
       <md-input-container  class="md-block" flex="20" flex-xs="100">
-        <label for="currentPage">Go to Page</label><input id="currentPage" ng-model="main.currentPage" type="number" min="1"
-                                                          max={{main.maxPageCount}}>
+        <label for="currentPage">Go to Page</label>
+        <input id="currentPage" ng-model="main.currentPage" type="number" min="1" max={{main.getMaxPageCount()}}>
       </md-input-container>
     </div>
 
