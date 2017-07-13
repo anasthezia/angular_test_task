@@ -2,7 +2,7 @@
 
 export class ProductsController {
 
-  constructor (ProductsService) {
+  constructor () {
     'ngInject';
     this.products = [];
   }
@@ -11,8 +11,7 @@ export class ProductsController {
     this.products = ProductsService.getProducts();
   }
 
-  activate(ProductsService) {
-    console.log('iniit')
+  activate() {
   }
 }
 

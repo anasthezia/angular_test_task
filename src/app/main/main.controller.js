@@ -6,16 +6,19 @@ export class MainController {
     this.classAnimation = '';
     this.creationDate = 1499696639222;
     this.toastr = toastr;
+    this.products = [];
+
 
     this.activate($timeout, webDevTec, ProductsService);
   }
 
   activate($timeout, webDevTec, ProductsService) {
-    this.getWebDevTec(webDevTec);
     this.getProducts(ProductsService);
     $timeout(() => {
       this.classAnimation = 'rubberBand';
     }, 4000);
+    this.itemsPerPage = 8;
+    this.currentPage = 1;
   }
 
   getWebDevTec(webDevTec) {

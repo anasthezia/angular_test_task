@@ -1,21 +1,21 @@
-<div layout="vertical" layout-fill>
+<div layout="column" layout-fill>
 
   <md-content>
     <header>
-      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+      <!--<acme-navbar creation-date="main.creationDate"></acme-navbar>-->
     </header>
 
-    <section class="jumbotron">
-      <h1>'Allo, 'Allo!</h1>
-      <p class="lead">
-        <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-        Always a pleasure scaffolding your apps.
-      </p>
-      <md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Splendid Toastr</md-button>
-      <p>
-        With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-      </p>
-    </section>
+    <!--<section class="jumbotron">-->
+      <!--<h1>'Allo, 'Allo!</h1>-->
+      <!--<p class="lead">-->
+        <!--<img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>-->
+        <!--Always a pleasure scaffolding your apps.-->
+      <!--</p>-->
+      <!--<md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Splendid Toastr</md-button>-->
+      <!--<p>-->
+        <!--With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>-->
+      <!--</p>-->
+    <!--</section>-->
     <div  layout-xs="column" layout-gt-xs="row">
       <md-input-container class="md-block" flex="20"flex-xs="100">
         <label>Sort by</label>
@@ -28,15 +28,22 @@
           </md-option>
         </md-select>
       </md-input-container>
-
       <md-input-container  class="md-block" flex="20" flex-xs="100">
         <input ng-model="search" type="text" placeholder="search" >
         <md-icon  style="display:inline-block;">search</md-icon>
       </md-input-container>
+      <md-input-container  class="md-block" flex="20" flex-xs="100">
+        <label for="itemsPerPage">Items per Page</label><input id="itemsPerPage" ng-model="main.itemsPerPage" type="number" min="1">
+      </md-input-container>
+      <md-input-container  class="md-block" flex="20" flex-xs="100">
+        <label for="currentPage">Go to Page</label><input id="currentPage" ng-model="main.currentPage" type="number" min="1"
+                                                          max={{main.maxPageCount}}>
+      </md-input-container>
     </div>
 
     <div class="products-list" layout-align="center">
-      <md-card ng-repeat="product in main.products | filter:search  | orderBy:sort" class="product" flex="25" flex-xs="100">
+      <md-card ng-repeat="product in main.products | filter:search | limitTo: main.itemsPerPage : (main.currentPage - 1) * main.itemsPerPage  |
+      orderBy:sort"  class="product" flex="25" flex-xs="100">
         <md-card-content>
           <div class="product__picture">
             <img class="pull-right" ng-src="{{ product.picture }}" alt="{{ product.title }}">
