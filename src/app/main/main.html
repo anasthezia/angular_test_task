@@ -16,16 +16,34 @@
         With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
       </p>
     </section>
+    <div  layout-xs="column" layout-gt-xs="row">
+      <md-input-container class="md-block" flex="20"flex-xs="100">
+        <label>Sort by</label>
+        <md-select ng-model="sort">
+          <md-option  value="title">
+            By title
+          </md-option>
+          <md-option value="price">
+            By price
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container  class="md-block" flex="20" flex-xs="100">
+        <input ng-model="search" type="text" placeholder="search" >
+        <md-icon  style="display:inline-block;">search</md-icon>
+      </md-input-container>
+    </div>
 
     <div class="products-list" layout-align="center">
-      <md-card ng-repeat="product in main.products | orderBy:'rank'" class="product" flex="25" flex-sm="100">
+      <md-card ng-repeat="product in main.products | filter:search  | orderBy:sort" class="product" flex="25" flex-xs="100">
         <md-card-content>
           <div class="product__picture">
             <img class="pull-right" ng-src="{{ product.picture }}" alt="{{ product.title }}">
           </div>
           <h3 class="md-title product__title">{{ product.title }}</h3>
           <p class="product__description">{{ product.description }}</p>
-          <p class="product__price">${{ product.proce }}</p>
+          <p class="product__price">${{ product.price }}</p>
         </md-card-content>
         <div class="md-action-buttons product__buttons-group" layout="row"  layout-align="center center">
           <md-button class="product__button">
