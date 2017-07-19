@@ -44,7 +44,7 @@
 
     <div class="products-list" layout-align="center">
       <md-card ng-repeat="product in main.products | filter:search | limitTo: main.itemsPerPage : (main.currentPage - 1) * main.itemsPerPage  |
-      orderBy:sort"  class="product" flex="25" flex-xs="100">
+      orderBy:sort"  class="product" flex="25" flex-xs="100"   ng-click="main.showDialog(event, product.id)">
         <md-card-content>
           <div class="product__picture">
             <img class="pull-right" ng-src="{{ product.picture }}" alt="{{ product.title }}">
@@ -74,5 +74,4 @@
       </md-card>
     </div>
   </md-content>
-
 </div>
