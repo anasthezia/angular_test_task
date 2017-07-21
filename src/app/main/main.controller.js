@@ -1,8 +1,11 @@
+import DialogController from '../components/quickshop/quickshop.controller.js';
+
 export class MainController {
-  constructor($timeout, webDevTec, ProductsService, toastr, $scope, $mdDialog) {
+  constructor($timeout, webDevTec, ProductsService, toastr, $scope, $mdDialog, $document) {
     'ngInject';
 
     this.awesomeThings = [];
+    this.$document = $document;
     this.classAnimation = '';
     this.creationDate = 1499696639222;
     this.toastr = toastr;
@@ -42,20 +45,21 @@ export class MainController {
     this.classAnimation = '';
   }
 
-  showDialog(event, product) {
-    this.product= product;
+  showDialog(event, productId) {
+    this.product= productId;
     this.$mdDialog.show({
-      // controller: DialogController(),
+      controller: DialogController(productId),
       templateUrl: '../app/components/quickshop/quickshop.html',
-      // template:'<h1>' + this.product + '</h1>',
-      parent: angular.element(document.body),
+      parent: angular.element( this.$document[0].body),
       targetEvent: event,
-      clickOutsideToClose:true
-    }).then(function(answer) {
-      this.status = 'You said the information was "' + answer + '".';
-    }, function() {
-      this.status = 'You cancelled the dialog.';
-    });
+      clickOutsideToClose:true,
+      product: this.product
+    })
+    //   .then(function(answer) {
+    //   this.status = 'You said the information was "' + answer + '".';
+    // }, function() {
+    //   this.status = 'You cancelled the dialog.';
+    // });
   }
 
 }

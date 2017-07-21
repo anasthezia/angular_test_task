@@ -1,14 +1,28 @@
 export class DialogController{
 
-  hide = function() {
-    $mdDialog.hide();
-  };
+  constructor($mdDialog, ProductsService) {
+    'ngInject';
+    this.$mdDialog = $mdDialog;
+    this.product = ProductsService.getProduct();
 
- cancel = function() {
-    $mdDialog.cancel();
-  };
+  }
+  activate() {
+    // this.Dialog();
+    console.log('............')
+  }
 
-  answer = function(answer) {
-    $mdDialog.hide(answer);
-  };
+
+
+  hide() {
+    this.$mdDialog.hide();
+  }
+ cancel() {
+    this.$mdDialog.cancel();
+  }
+
+  answer() {
+    this.$mdDialog.hide();
+  }
+
+
 }

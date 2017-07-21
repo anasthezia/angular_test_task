@@ -2,7 +2,7 @@ export class ProductsService {
   constructor () {
     'ngInject';
 
-    this.data = [
+    this.products = [
       {
         'id': 0,
         'title': 'Лампа ОНЛАЙТ E27 10Вт 4000K',
@@ -91,6 +91,17 @@ export class ProductsService {
   }
 
   getProducts() {
-    return this.data;
+    return this.products;
+  }
+  getProduct(id){
+    this.id = id;
+    this.products.forEach(function(item) {
+      if (item.id === id) {
+        return this.item
+      }
+    });
+    // forEach (this.products) {
+    //
+    // }
   }
 }
