@@ -125,6 +125,41 @@ section.jumbotron {
     }
   }
 }
+.container {
+  width: 80%;
+}
+.product-info-container {
+  text-align: center;
+  .product {
+    &__price {
+      color:#3f51b5;
+      font-weight:600;
+      font-size:1.2rem;
+      text-align: center;
+    }
+
+    &__total-items{
+      margin:0 20px 0 0;
+    }
+
+    &__total-price {
+      color:#cb3837;
+      font-weight:600;
+      font-size:1.8rem;
+      margin:0 0 24px 0;
+      text-align: left;
+    }
+  }
+  .totals {
+    margin: 40px 0 0;
+  }
+  .cart-btn {
+    padding: 8px 16px;
+    font-weight: 600;
+    margin:20px auto;
+    width:100%;
+  }
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your less files automatically

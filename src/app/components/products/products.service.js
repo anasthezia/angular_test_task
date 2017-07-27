@@ -94,14 +94,7 @@ export class ProductsService {
     return this.products;
   }
   getProduct(id){
-    this.id = id;
-    this.products.forEach(function(item) {
-      if (item.id === id) {
-        return this.item
-      }
-    });
-    // forEach (this.products) {
-    //
-    // }
+    this.product = this.products[id];
+    return this.product;
   }
 }

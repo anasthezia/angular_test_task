@@ -1,14 +1,14 @@
 export class DialogController{
 
-  constructor($mdDialog, ProductsService) {
+  constructor($mdDialog) {
     'ngInject';
     this.$mdDialog = $mdDialog;
-    this.product = ProductsService.getProduct();
+    // this.product = ProductsService.getProduct();
 
   }
   activate() {
     // this.Dialog();
-    console.log('............')
+    // console.log('............')
   }
 
 

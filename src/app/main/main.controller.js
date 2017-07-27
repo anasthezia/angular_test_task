@@ -11,12 +11,14 @@ export class MainController {
     this.toastr = toastr;
     this.$mdDialog = $mdDialog;
     this.products = [];
+    this.product = [];
 
 
     this.activate($timeout, webDevTec, ProductsService, $scope, $mdDialog);
   }
 
   activate($timeout, webDevTec, ProductsService) {
+    console.log(this);
     this.getProducts(ProductsService);
     $timeout(() => {
       this.classAnimation = 'rubberBand';
@@ -36,6 +38,10 @@ export class MainController {
   getProducts(ProductsService) {
     this.products = ProductsService.getProducts();
   }
+  //
+  // getProduct(ProductsService, id) {
+  //   this.product = ProductsService.getProduct(id);
+  // }
   getMaxPageCount() {
     this.maxPageCount = Math.ceil(this.products.length/ this.itemsPerPage);
     return this.maxPageCount;
@@ -48,13 +54,14 @@ export class MainController {
   showDialog(event, productId) {
     this.product= productId;
     this.$mdDialog.show({
-      controller: DialogController(productId),
+      controller: DialogController,
       templateUrl: '../app/components/quickshop/quickshop.html',
       parent: angular.element( this.$document[0].body),
       targetEvent: event,
       clickOutsideToClose:true,
       product: this.product
     })
+
     //   .then(function(answer) {
     //   this.status = 'You said the information was "' + answer + '".';
     // }, function() {
@@ -63,3 +70,4 @@ export class MainController {
   }
 
 }
+
