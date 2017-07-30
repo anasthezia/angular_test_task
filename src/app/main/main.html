@@ -4,7 +4,6 @@
     <header>
       <!--<acme-navbar creation-date="main.creationDate"></acme-navbar>-->
     </header>
-
     <!--<section class="jumbotron">-->
       <!--<h1>'Allo, 'Allo!</h1>-->
       <!--<p class="lead">-->
@@ -47,30 +46,15 @@
       orderBy:sort"  class="product" flex="25" flex-xs="100" >
         <md-card-content ui-sref='product({id: product.id})' >
           <div class="product__picture">
-            <img class="pull-right" ng-src="{{ product.picture }}" alt="{{ product.title }}">
+            <img class="pull-right" ng-src="{{product.picture}}" alt="{{product.title}}">
           </div>
-          <h3 class="md-title product__title">{{ product.title }}</h3>
-          <p class="product__description">{{ product.description }}</p>
-          <p class="product__price">${{ product.price }}</p>
+          <h3 class="md-title product__title">{{product.title}}</h3>
+          <rating  rating={{product.rating}}></rating>
+          <p class="product__description">{{product.description}}</p>
+          <p class="product__price">{{product.price | currency}}</p>
         </md-card-content>
-        <div class="md-action-buttons product__buttons-group" layout="row"  layout-align="center center">
-          <md-button class="product__button">
-            <md-tooltip>Share</md-tooltip>
-            <i class="material-icons">share</i>
-          </md-button>
-          <md-button class="product__button">
-            <md-tooltip>Add to compare</md-tooltip>
-            <i class="material-icons">compare_arrows</i>
-          </md-button>
-          <md-button class="product__button">
-            <md-tooltip>Add to wishlist</md-tooltip>
-            <i class="material-icons">favorite</i>
-          </md-button>
-          <md-button class="product__button" ng-click="main.showDialog(event, product.id)">
-            <md-tooltip>Add to cart</md-tooltip>
-            <i class="material-icons">add_shopping_cart</i>
-          </md-button>
-        </div>
+
+        <md-button class="btn quick-shop-btn"  ng-click="main.showDialog(event, product.id)">Quick shop</md-button>
       </md-card>
     </div>
   </md-content>

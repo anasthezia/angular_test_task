@@ -5,15 +5,34 @@
       <img src="{{vm.product.picture}}" alt="">
     </div>
     <div class="product-info-container" flex="50">
+      <div class="md-action-buttons product__buttons-group" layout="row"  layout-align="center center">
+        <md-button class="product__button">
+          <md-tooltip>Share</md-tooltip>
+          <i class="material-icons">share</i>
+        </md-button>
+        <md-button class="product__button">
+          <md-tooltip>Add to compare</md-tooltip>
+          <i class="material-icons">compare_arrows</i>
+        </md-button>
+        <md-button class="product__button">
+          <md-tooltip>Add to wishlist</md-tooltip>
+          <i class="material-icons">favorite</i>
+        </md-button>
+        <md-button class="product__button" ng-click="main.showDialog(event, product.id)">
+          <md-tooltip>Add to cart</md-tooltip>
+          <i class="material-icons">add_shopping_cart</i>
+        </md-button>
+      </div>
       <h1>{{vm.product.title}}</h1>
+      <rating rating="{{vm.product.rating}}"></rating>
       <p class="product__description">{{ vm.product.description }}</p>
-      <p class="product__price">${{ vm.product.price }}</p>
+      <p class="product__price">{{ vm.product.price | currency }}</p>
       <div class="totals" layout="row" layout-align="end center">
         <md-input-container  class="md-block product__total-items" flex="20" flex-xs="100">
           <label for="itemsToCart">items</label>
           <input id="itemsToCart" ng-model="vm.itemsToCart" type="number" min="1" value="1" placeholder="1">
         </md-input-container>
-        <p class="product__total-price"  flex="50" flex-xs="100">${{ vm.product.price * vm.itemsToCart}}</p>
+        <p class="product__total-price"  flex="50" flex-xs="100">{{ vm.product.price * vm.itemsToCart | currency}}</p>
       </div>
 
       <md-button class="md-raised md-primary cart-btn">Add to cart</md-button>

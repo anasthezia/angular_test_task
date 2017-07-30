@@ -9,6 +9,7 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { ProductsService } from '../app/components/products/products.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+import { Rating1Directive } from './components/rating/rating.directive';
 import { DialogController } from '../app/components/quickshop/quickshop.controller';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
@@ -25,4 +26,5 @@ angular.module('angularTestTask', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
   .controller('ProductsController', ProductsController)
   .controller('DialogController', DialogController)
   .directive('acmeNavbar', NavbarDirective)
+  .directive('rating', Rating1Directive)
   .directive('acmeMalarkey', MalarkeyDirective);
