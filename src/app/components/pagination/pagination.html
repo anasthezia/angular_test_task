@@ -1,0 +1,8 @@
+<h2>pagination {{vm.pagescount}}</h2>
+
+<div class="pagination"  layout="row">
+  <md-button ng-repeat="page in pager.pages"  class="md-raised"
+             ng-class="{primary: page<currentPage}"
+             ng-click="pager.gotoPage(page)">{{page}}</md-button>
+  <span>{{pager.currentPage}}</span>
+</div>

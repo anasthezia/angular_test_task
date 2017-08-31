@@ -11,6 +11,7 @@ export class MainController {
     this.toastr = toastr;
     this.$mdDialog = $mdDialog;
     this.products = [];
+    this.pages = [];
     this.product = [];
 
 
@@ -18,13 +19,14 @@ export class MainController {
   }
 
   activate($timeout, webDevTec, ProductsService) {
-    console.log(this);
     this.getProducts(ProductsService);
     $timeout(() => {
       this.classAnimation = 'rubberBand';
     }, 4000);
-    this.itemsPerPage = 8;
-    this.currentPage = 1;
+    // this.itemsPerPage = 4;
+    // this.currentPage = 1;
+    // // this.maxPageCount = getMaxPageCount();
+    // this.setPagination()
   }
 
   getWebDevTec(webDevTec) {
@@ -51,6 +53,17 @@ export class MainController {
     this.classAnimation = '';
   }
 
+  // setPagination() {
+  //   this.maxPageCount = this.getMaxPageCount()
+  //   this.pages= [];
+  //   for (var i=1; i<=this.maxPageCount; i++) {
+  //     this.pages.push(i);
+  //   }
+  //
+  // }
+  //
+  //
+
   showDialog(event, productId) {
     this.product= productId;
     this.$mdDialog.show({
@@ -68,6 +81,5 @@ export class MainController {
     //   this.status = 'You cancelled the dialog.';
     // });
   }
-
 }
 

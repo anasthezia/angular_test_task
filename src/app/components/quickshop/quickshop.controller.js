@@ -1,28 +1,41 @@
-export class DialogController{
+export class QuicksopController{
 
-  constructor($mdDialog) {
+  // constructor($mdDialog, $stateParams, $scope, poductId, ProductsService) {
+  //   'ngInject';
+  //   this.$mdDialog = $mdDialog;
+  //   this.getProduct(ProductsService, 2);
+  //   console.log('............11111')
+  //
+  // }
+  constructor ($mdDialog) {
     'ngInject';
     this.$mdDialog = $mdDialog;
-    // this.product = ProductsService.getProduct();
+    this.products = [];
+    this.product = [];
+    // this.activate( ProductsService, $stateParams);
+    this.itemsToCart = 1;
 
   }
   activate() {
-    // this.Dialog();
-    // console.log('............')
+    this.Dialog()
   }
-
-
-
-  hide() {
-    this.$mdDialog.hide();
+ //
+ //
+ //
+ //  hide() {
+ //    this.$mdDialog.hide();
+ //  }
+ // cancel() {
+ //    this.$mdDialog.cancel();
+ //  }
+ //
+ //  answer() {
+ //    this.$mdDialog.hide();
+ //  }
+  open(event, productId) {
+    this.product = productId;
   }
- cancel() {
-    this.$mdDialog.cancel();
-  }
-
-  answer() {
-    this.$mdDialog.hide();
-  }
-
 
 }
+
+export default  QuicksopController;
