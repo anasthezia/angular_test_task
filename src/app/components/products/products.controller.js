@@ -23,7 +23,6 @@ export class ProductsController {
 }
 
   activate(ProductsService, $stateParams) {
-    console.log(this, $stateParams);
    this.getProduct(ProductsService, $stateParams);
   }
 }

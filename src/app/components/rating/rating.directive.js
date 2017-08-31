@@ -1,27 +1,27 @@
-export function Rating1Directive() {
+export function RatingDirective() {
   'ngInject';
 
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/rating/rating.html',
     scope: {
-        rating:  '@'
+      rating: '@'
     },
-    controller: Navbar1Controller,
+    controller: RatingController,
     controllerAs: 'vm',
     bindToController: true
   };
   return directive;
 }
 
-class Navbar1Controller{
-  constructor () {
+class RatingController {
+  constructor() {
     'ngInject';
     this.showRating(this.rating);
   }
   showRating(rating) {
-    this.maxStars=5;
-    this.fillWidth = Math.round((rating / this.maxStars )  * 100);
+    this.maxStars = 5;
+    this.fillWidth = Math.round((rating / this.maxStars ) * 100);
 
   }
 }
